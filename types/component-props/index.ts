@@ -23,7 +23,17 @@ export interface IProjectItemProps {
 }
 
 export interface IProjectContentProps extends Omit<IProject, 'excerpt' | 'date'> {
-    content: string
+    content: string;
 }
 
 export interface IProjectHeaderProps extends Pick<IProject, 'title' | 'image'> { }
+
+export interface IContactParams {
+    email: string | undefined;
+    message: string | undefined;
+    name: string | undefined;
+}
+
+export interface IContactFormProps {
+    onSubmit({ email, message, name }: IContactParams): void //TODO refactor the type of the param
+}
