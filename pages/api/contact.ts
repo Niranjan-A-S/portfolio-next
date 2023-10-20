@@ -31,8 +31,8 @@ const handleContactPost = async (req: NextApiRequest, res: NextApiResponse) => {
         })
         _client?.close();
     } catch (error) {
-        _client?.close();
         res.status(500).send({ message: 'Could not send message' });
+        _client?.close();
     }
 
 }
