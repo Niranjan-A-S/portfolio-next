@@ -1,10 +1,20 @@
 import { AllProjects } from "@/components/projects/all-projects";
 import { getAllProjects } from "@/lib/project-util";
 import { IAllProjectsProps } from "@/types/component-props";
-import { FC, memo } from "react"
+import { FC, memo } from "react";
+import Head from 'next/head'; 
 
 const AllProjectsPage: FC<IAllProjectsProps> = (props) => {
-    return <AllProjects projects={props.projects} />
+    return <>
+        <Head>
+            <title>My Projects</title>
+            <meta
+                name="description"
+                content="A list of all my projects"
+            />
+        </Head>
+        <AllProjects projects={props.projects} />
+    </>
 }
 
 export default memo(AllProjectsPage);

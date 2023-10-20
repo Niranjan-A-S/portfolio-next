@@ -3,9 +3,20 @@ import { getAllProjects, getProjectData, getProjectFiles } from "@/lib/project-u
 import { IProjectContentProps } from "@/types/component-props";
 import { GetStaticProps } from "next";
 import { FC, memo } from "react"
+import Head from 'next/head';
 
 const ProjectDetailPage: FC<IProjectContentProps> = (props) => {
-    return <ProjectContent content={props.content} title={props.title} image={props.image} slug={props.slug} />
+
+    return <>
+        <Head>
+            <title>{props?.title}</title>
+            <meta
+                name="description"
+                content={props.title}
+            />
+        </Head>
+        <ProjectContent content={props.content} title={props.title} image={props.image} slug={props.slug} />
+    </>
 }
 
 export default memo(ProjectDetailPage);

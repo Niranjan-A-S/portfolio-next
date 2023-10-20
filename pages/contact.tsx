@@ -1,20 +1,16 @@
-import { FC, memo, useCallback } from "react";
+import { FC, memo } from "react";
 import { ContactForm } from "@/components/contact-page/contact-form";
-import { IContactParams } from "@/types/component-props";
+import Head from 'next/head'
 
-const ContactPage: FC = () => {
-
-    const sendMessage = useCallback(async (data: IContactParams) => {
-        await fetch('api/contact', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(data)
-        })
-    }, [])
-
-    return <ContactForm onSubmit={sendMessage} />
-}
+const ContactPage: FC = () => <>
+    <Head>
+        <title>Contact Me</title>
+        <meta
+            name="description"
+            content="Send me a message if you have any questions"
+        />
+    </Head>
+    <ContactForm />
+</>
 
 export default memo(ContactPage);

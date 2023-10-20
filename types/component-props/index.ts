@@ -37,3 +37,10 @@ export interface IContactParams {
 export interface IContactFormProps {
     onSubmit({ email, message, name }: IContactParams): void //TODO refactor the type of the param
 }
+
+export interface INotificationProps {
+    title: string;
+    message: string;
+    status: 'success' | 'error' | 'pending';
+    onClick(): void;
+}
