@@ -29,10 +29,10 @@ const handleContactPost = async (req: NextApiRequest, res: NextApiResponse) => {
             message: 'Message sent successfully',
             success: true
         })
-        _client?.close();
+        await _client?.close();
     } catch (error) {
         res.status(500).send({ message: 'Could not send message' });
-        _client?.close();
+        await _client?.close();
     }
 
 }
